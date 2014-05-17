@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>your scripts</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h3>your scripts</h3>
+
+<h3>explain how all of the scripts work and how they are connected</h3>
+
+<h4>document the variables in the &ldquo;tidy data&rdquo; table</h4>
+
+<p>&lt;
+        ProcessSamsungData &lt;- function() {</p>
+
+<pre><code>        # ================================================
+        message(&quot;reading test data set&quot;)
+        test &lt;- read.table(&quot;test//X_test.txt&quot;)
+
+        message(&quot;reading activity labels for the test data set&quot;)
+        testActLabels &lt;- read.table(&quot;test//y_test.txt&quot;)
+
+        message(&quot;reading subject labels for test data set&quot;)
+        testSubjLabels &lt;- read.table(&quot;test//subject_test.txt&quot;)
+
+        message(&quot;reading train data set&quot;)
+        train &lt;- read.table(&quot;train//X_train.txt&quot;)
+
+        message(&quot;reading activity labels for the train data set&quot;)
+        trainActLabels &lt;- read.table(&quot;train//y_train.txt&quot;)
+
+        message(&quot;reading subject labels for the test data set&quot;)
+        trainSubjLabels &lt;- read.table(&quot;train//subject_train.txt&quot;)
+
+        message(&quot;read activity labels descriptive names&quot;)
+        actLabelTable &lt;- read.table(&quot;activity_labels.txt&quot;)
+        actLabelNames &lt;- factor(actLabelTable[,1], labels=actLabelTable[,2])
+
+        message(&quot;read feature names&quot;)
+        features &lt;- read.table(&quot;features.txt&quot;)[,2]
+
+        # ================================================
+        message(&quot;calculating meansStds&quot;)
+
+        # combine test and train data sets
+        combined &lt;- rbind(test, train)
+
+        # combine test and train activity labels
+        combinedActLabels &lt;- rbind(testActLabels, trainActLabels)[,1]
+
+        # combine test and train subject labels
+        combinedSubjLabels &lt;- rbind(testSubjLabels, trainSubjLabels)[,1]
+
+        # set column names to feature names
+        colnames(combined) &lt;- features
+
+        # find features that are means and stddevs (see features_info.txt)
+        meanCols    &lt;- grep(&quot;mean|Mean&quot;, features)
+        stdCols     &lt;- grep(&quot;std()&quot;    , features)
+        meanStdCols &lt;- sort(c(meanCols,stdCols))
+
+        # extract only mean and stddevs columns
+        meansStds &lt;- combined[,meanStdCols]
+
+        # add first col with activity label descriptive name
+        meansStds &lt;- cbind(actLabelNames[combinedActLabels], meansStds)
+        colnames(meansStds)[1] &lt;- &quot;activity&quot;
+
+        # ================================================
+        message(&quot;calculating actSubjAvg&quot;)
+
+        # create actSubjAvg: 
+        # average of each sum/mean variable (1..86) for each activity (1..6) and each subject (1..30)
+        # column 1     : activity (val: 1.. 6)
+        # column 2     : subject  (val: 1..30)
+        # columns 3..88: average of each of the 86 mean/std variables
+        # total rows: subjects * activities = 180
+
+        noSubjects &lt;- length(unique(combinedSubjLabels)) # no. of subjects
+        sums       &lt;- matrix(nrow= length(actLabelNames) * noSubjects, ncol= length(meanStdCols), data= 0)
+        counts     &lt;- matrix(nrow= length(actLabelNames) * noSubjects, ncol= length(meanStdCols), data= 0)
+
+        for (r in 1:nrow(meansStds)) { # for each test and train case
+            activity  &lt;- combinedActLabels [r]
+            subject   &lt;- combinedSubjLabels[r]
+            matrixRow &lt;- (activity-1) * noSubjects + subject
+
+            for (v in 1:length(meanStdCols)) { # for each mean/std variable
+                sums  [matrixRow, v] = sums  [matrixRow, v] + meansStds[r, v+1]
+                counts[matrixRow, v] = counts[matrixRow, v] + 1
+            }
+        }
+
+        actSubjAvg = sums / counts
+
+        actSubjAvg&lt;- data.frame(actSubjAvg)                   # convert matrix to data frame
+        actSubjAvg&lt;- cbind(actLabelNames[1], 0, actSubjAvg)   # insert two leading columns: activity, subject
+
+        colnames(actSubjAvg)[1:2] &lt;- c(&quot;activity&quot;, &quot;subject&quot;) # set names for columns 1,2
+        for (v in 1: (ncol(meansStds)-1))                     # set names for each mean/std column
+            colnames(actSubjAvg)[v+2] = paste(&quot;mean(&quot;, colnames(meansStds)[v+1], &quot;)&quot;, sep=&quot;&quot;)
+
+        for (a in 1: length(actLabelNames)) # activity
+            for (s in 1: noSubjects) {      # subject
+                actSubjAvg[(a-1) * noSubjects + s, 1] &lt;- actLabelNames[a] # column 1: activity
+                actSubjAvg[(a-1) * noSubjects + s, 2] &lt;- s                # column 2: subject
+            }
+
+        # define result variables in the parent.frame of the function
+        meansStds  &lt;&lt;- meansStds
+        actSubjAvg &lt;&lt;- actSubjAvg
+    }
+
+    # process samsung data
+    ProcessSamsungData()
+</code></pre>
+
+<blockquote>
+</blockquote>
+
+</body>
+
+</html>
+

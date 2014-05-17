@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>General</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h3>General</h3>
+
+<p>This document describes the structure of the tidy data frame that can be produced either by:</p>
+
+<ul>
+<li>loading     - Loading the act_subj_avg.txt text file in R using read.table</li>
+<li>generating  - Executing the run_analysis.R script generates a data frame named actSubjAvg</li>
+</ul>
+
+<p>The run_analysis.R script is explained in the README.md file</p>
+
+<p>The data frame has 180 observations (rows) and 88 variables (columns)</p>
+
+<h3>Observations</h3>
+
+<p>Each observation represent one volunteers and one activity.
+There is a total of 30 volunteers and 6 activities.</p>
+
+<h3>Variables</h3>
+
+<p>1 - activity
+    the activity in with the subject was engaged
+    values : 1: WALKING, 2: WALKING_UPSTAIRS, 3: WALKING_DOWNSTAIRS, 4: SITTING, 5: STANDING, 6: LAYING
+             (defined as a factor with labels)
+    note: labels order may change is saved as a text file 
+          (That&#39;s how R saves text files. Save as RData to overcome this problem)</p>
+
+<p>2 - subject
+    volunteers number
+    values: 1-30</p>
+
+<p>Columns 3-88 contain the mean over all measurements (training data and test data) for the given activity (column 1) and subject (column 2)</p>
+
+<p>Only variables which measures mean and standard deviation are included.</p>
+
+<p>The averaged variables are </p>
+
+<p>3 - mean(tBodyAcc-mean()-X)                    - the mean of tBodyAcc-mean()-X                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 4 - mean(tBodyAcc-mean()-Y)                    - the mean of tBodyAcc-mean()-Y                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 5 - mean(tBodyAcc-mean()-Z)                    - the mean of tBodyAcc-mean()-Z                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 6 - mean(tBodyAcc-std()-X)                     - the mean of tBodyAcc-std()-X                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 7 - mean(tBodyAcc-std()-Y)                     - the mean of tBodyAcc-std()-Y                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 8 - mean(tBodyAcc-std()-Z)                     - the mean of tBodyAcc-std()-Z                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 9 - mean(tGravityAcc-mean()-X)                 - the mean of tGravityAcc-mean()-X                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 10 - mean(tGravityAcc-mean()-Y)                 - the mean of tGravityAcc-mean()-Y                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 11 - mean(tGravityAcc-mean()-Z)                 - the mean of tGravityAcc-mean()-Z                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 12 - mean(tGravityAcc-std()-X)                  - the mean of tGravityAcc-std()-X                  over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 13 - mean(tGravityAcc-std()-Y)                  - the mean of tGravityAcc-std()-Y                  over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 14 - mean(tGravityAcc-std()-Z)                  - the mean of tGravityAcc-std()-Z                  over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 15 - mean(tBodyAccJerk-mean()-X)                - the mean of tBodyAccJerk-mean()-X                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 16 - mean(tBodyAccJerk-mean()-Y)                - the mean of tBodyAccJerk-mean()-Y                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 17 - mean(tBodyAccJerk-mean()-Z)                - the mean of tBodyAccJerk-mean()-Z                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 18 - mean(tBodyAccJerk-std()-X)                 - the mean of tBodyAccJerk-std()-X                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 19 - mean(tBodyAccJerk-std()-Y)                 - the mean of tBodyAccJerk-std()-Y                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 20 - mean(tBodyAccJerk-std()-Z)                 - the mean of tBodyAccJerk-std()-Z                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 21 - mean(tBodyGyro-mean()-X)                   - the mean of tBodyGyro-mean()-X                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 22 - mean(tBodyGyro-mean()-Y)                   - the mean of tBodyGyro-mean()-Y                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 23 - mean(tBodyGyro-mean()-Z)                   - the mean of tBodyGyro-mean()-Z                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 24 - mean(tBodyGyro-std()-X)                    - the mean of tBodyGyro-std()-X                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 25 - mean(tBodyGyro-std()-Y)                    - the mean of tBodyGyro-std()-Y                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 26 - mean(tBodyGyro-std()-Z)                    - the mean of tBodyGyro-std()-Z                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 27 - mean(tBodyGyroJerk-mean()-X)               - the mean of tBodyGyroJerk-mean()-X               over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 28 - mean(tBodyGyroJerk-mean()-Y)               - the mean of tBodyGyroJerk-mean()-Y               over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 29 - mean(tBodyGyroJerk-mean()-Z)               - the mean of tBodyGyroJerk-mean()-Z               over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 30 - mean(tBodyGyroJerk-std()-X)                - the mean of tBodyGyroJerk-std()-X                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 31 - mean(tBodyGyroJerk-std()-Y)                - the mean of tBodyGyroJerk-std()-Y                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 32 - mean(tBodyGyroJerk-std()-Z)                - the mean of tBodyGyroJerk-std()-Z                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 33 - mean(tBodyAccMag-mean())                   - the mean of tBodyAccMag-mean()                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 34 - mean(tBodyAccMag-std())                    - the mean of tBodyAccMag-std()                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 35 - mean(tGravityAccMag-mean())                - the mean of tGravityAccMag-mean()                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 36 - mean(tGravityAccMag-std())                 - the mean of tGravityAccMag-std()                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 37 - mean(tBodyAccJerkMag-mean())               - the mean of tBodyAccJerkMag-mean()               over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 38 - mean(tBodyAccJerkMag-std())                - the mean of tBodyAccJerkMag-std()                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 39 - mean(tBodyGyroMag-mean())                  - the mean of tBodyGyroMag-mean()                  over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 40 - mean(tBodyGyroMag-std())                   - the mean of tBodyGyroMag-std()                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 41 - mean(tBodyGyroJerkMag-mean())              - the mean of tBodyGyroJerkMag-mean()              over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 42 - mean(tBodyGyroJerkMag-std())               - the mean of tBodyGyroJerkMag-std()               over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 43 - mean(fBodyAcc-mean()-X)                    - the mean of fBodyAcc-mean()-X                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 44 - mean(fBodyAcc-mean()-Y)                    - the mean of fBodyAcc-mean()-Y                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 45 - mean(fBodyAcc-mean()-Z)                    - the mean of fBodyAcc-mean()-Z                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 46 - mean(fBodyAcc-std()-X)                     - the mean of fBodyAcc-std()-X                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 47 - mean(fBodyAcc-std()-Y)                     - the mean of fBodyAcc-std()-Y                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 48 - mean(fBodyAcc-std()-Z)                     - the mean of fBodyAcc-std()-Z                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 49 - mean(fBodyAcc-meanFreq()-X)                - the mean of fBodyAcc-meanFreq()-X                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 50 - mean(fBodyAcc-meanFreq()-Y)                - the mean of fBodyAcc-meanFreq()-Y                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 51 - mean(fBodyAcc-meanFreq()-Z)                - the mean of fBodyAcc-meanFreq()-Z                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 52 - mean(fBodyAccJerk-mean()-X)                - the mean of fBodyAccJerk-mean()-X                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 53 - mean(fBodyAccJerk-mean()-Y)                - the mean of fBodyAccJerk-mean()-Y                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 54 - mean(fBodyAccJerk-mean()-Z)                - the mean of fBodyAccJerk-mean()-Z                over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 55 - mean(fBodyAccJerk-std()-X)                 - the mean of fBodyAccJerk-std()-X                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 56 - mean(fBodyAccJerk-std()-Y)                 - the mean of fBodyAccJerk-std()-Y                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 57 - mean(fBodyAccJerk-std()-Z)                 - the mean of fBodyAccJerk-std()-Z                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 58 - mean(fBodyAccJerk-meanFreq()-X)            - the mean of fBodyAccJerk-meanFreq()-X            over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 59 - mean(fBodyAccJerk-meanFreq()-Y)            - the mean of fBodyAccJerk-meanFreq()-Y            over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 60 - mean(fBodyAccJerk-meanFreq()-Z)            - the mean of fBodyAccJerk-meanFreq()-Z            over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 61 - mean(fBodyGyro-mean()-X)                   - the mean of fBodyGyro-mean()-X                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 62 - mean(fBodyGyro-mean()-Y)                   - the mean of fBodyGyro-mean()-Y                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 63 - mean(fBodyGyro-mean()-Z)                   - the mean of fBodyGyro-mean()-Z                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 64 - mean(fBodyGyro-std()-X)                    - the mean of fBodyGyro-std()-X                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 65 - mean(fBodyGyro-std()-Y)                    - the mean of fBodyGyro-std()-Y                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 66 - mean(fBodyGyro-std()-Z)                    - the mean of fBodyGyro-std()-Z                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 67 - mean(fBodyGyro-meanFreq()-X)               - the mean of fBodyGyro-meanFreq()-X               over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 68 - mean(fBodyGyro-meanFreq()-Y)               - the mean of fBodyGyro-meanFreq()-Y               over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 69 - mean(fBodyGyro-meanFreq()-Z)               - the mean of fBodyGyro-meanFreq()-Z               over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 70 - mean(fBodyAccMag-mean())                   - the mean of fBodyAccMag-mean()                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 71 - mean(fBodyAccMag-std())                    - the mean of fBodyAccMag-std()                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 72 - mean(fBodyAccMag-meanFreq())               - the mean of fBodyAccMag-meanFreq()               over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 73 - mean(fBodyBodyAccJerkMag-mean())           - the mean of fBodyBodyAccJerkMag-mean()           over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 74 - mean(fBodyBodyAccJerkMag-std())            - the mean of fBodyBodyAccJerkMag-std()            over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 75 - mean(fBodyBodyAccJerkMag-meanFreq())       - the mean of fBodyBodyAccJerkMag-meanFreq()       over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 76 - mean(fBodyBodyGyroMag-mean())              - the mean of fBodyBodyGyroMag-mean()              over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 77 - mean(fBodyBodyGyroMag-std())               - the mean of fBodyBodyGyroMag-std()               over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 78 - mean(fBodyBodyGyroMag-meanFreq())          - the mean of fBodyBodyGyroMag-meanFreq()          over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 79 - mean(fBodyBodyGyroJerkMag-mean())          - the mean of fBodyBodyGyroJerkMag-mean()          over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 80 - mean(fBodyBodyGyroJerkMag-std())           - the mean of fBodyBodyGyroJerkMag-std()           over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 81 - mean(fBodyBodyGyroJerkMag-meanFreq())      - the mean of fBodyBodyGyroJerkMag-meanFreq()      over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 82 - mean(angle(tBodyAccMean,gravity))          - the mean of angle(tBodyAccMean,gravity)          over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 83 - mean(angle(tBodyAccJerkMean),gravityMean)) - the mean of angle(tBodyAccJerkMean),gravityMean) over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 84 - mean(angle(tBodyGyroMean,gravityMean))     - the mean of angle(tBodyGyroMean,gravityMean)     over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 85 - mean(angle(tBodyGyroJerkMean,gravityMean)) - the mean of angle(tBodyGyroJerkMean,gravityMean) over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 86 - mean(angle(X,gravityMean))                 - the mean of angle(X,gravityMean)                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 87 - mean(angle(Y,gravityMean))                 - the mean of angle(Y,gravityMean)                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
+ 88 - mean(angle(Z,gravityMean))                 - the mean of angle(Z,gravityMean)                 over all measurements for the given activity (column 1) and subject (column 2)         </p>
+
+</body>
+
+</html>
+
