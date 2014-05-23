@@ -135,6 +135,43 @@ hr {
 
 </style>
 
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
 
 
 
@@ -144,127 +181,289 @@ hr {
 <body>
 <h3>General</h3>
 
-<p>This document describes the structure of the tidy data frame that can be produced either by:</p>
+<p>This document describes the input data and output data of the script defined in &ldquo;run_analysis.R&rdquo;.</p>
+
+<p>The output data can be generated by executing </p>
+
+<pre><code class="r">source(&#39;run_analysis.R&#39;)
+</code></pre>
+
+<p>(run_analysis.R is explained in README.md)</p>
+
+<p>Alternatively, the output data  can loaded by executing </p>
+
+<pre><code class="r">actSubjAvg &lt;- read.table(&quot;act_subj_avg.txt&quot;)
+</code></pre>
+
+<h3>The input data</h3>
+
+<p>The input data is the following 8 files:</p>
+
+<p>Training set:</p>
 
 <ul>
-<li>loading     - Loading the act_subj_avg.txt text file in R using read.table</li>
-<li>generating  - Executing the run_analysis.R script generates a data frame named actSubjAvg</li>
+<li>&ldquo;test/y_test.txt&rdquo; (read into &ldquo;testActLabels&rdquo;) - each row (2947 rows) identifies the activity type (integer: 1-6)</li>
+<li>&ldquo;test/subject_test.txt&rdquo; (read into &ldquo;testSubjLabels&rdquo;) - each row (2947 rows) identifies the subject who performed the activity for each window sample (integer: 2,4,9,10,12,13,18,20,24)</li>
+<li>&ldquo;test/X_test.txt&rdquo; (read into &ldquo;test&rdquo;) - each row (2974 rows) represent one subject and activity, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)</li>
 </ul>
 
-<p>The run_analysis.R script is explained in the README.md file</p>
+<p>Test set:</p>
 
-<p>The data frame has 180 observations (rows) and 88 variables (columns)</p>
+<ul>
+<li>&ldquo;train/y_train.txt&rdquo; (read into &ldquo;trainActLabels&rdquo;) - each row (7352 rows) identifies the activity type (integer: 1-6)</li>
+<li>&ldquo;train/subject_train.txt&rdquo; (read into &ldquo;trainSubjLabels&rdquo;) - each row (7352 rows) identifies the subject who performed the activity for each window sample (integer: 1,3,5-8,11,14-17,19,21-23,25-30)</li>
+<li>&ldquo;train/X_train.txt&rdquo; (read into &ldquo;train&rdquo;) - each row (7352 rows) represent one subject and activity, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)</li>
+</ul>
 
-<h3>Observations</h3>
+<p>Descriptive names:</p>
 
-<p>Each observation represent one volunteers and one activity.
-There is a total of 30 volunteers and 6 activities.</p>
+<ul>
+<li>&ldquo;activity_labels.txt&rdquo; (read into &ldquo;actLabelTable&rdquo;) - contains the names of the 6 activity types (col.1: Seq.no, col.2: activity name)</li>
+<li>&ldquo;features.txt&rdquo; (the secoonds column is read into &ldquo;features&rdquo;) - contains the names of the 561 measurement types (features) (col.1: Seq.no, col.2: measurement name)</li>
+</ul>
 
-<h3>Variables</h3>
+<h3>The output data - meansStds</h3>
 
-<p>1 - activity
-    the activity in with the subject was engaged
-    values : 1: WALKING, 2: WALKING_UPSTAIRS, 3: WALKING_DOWNSTAIRS, 4: SITTING, 5: STANDING, 6: LAYING
-             (defined as a factor with labels)
-    note: labels order may change is saved as a text file 
-          (That&#39;s how R saves text files. Save as RData to overcome this problem)</p>
+<p>This is a matrix with 10299 rows and 87 columns.</p>
 
-<p>2 - subject
-    volunteers number
-    values: 1-30</p>
+<p>Each row represents one observation (one test: one subject involved in one activity, in one window sample). Training data set and test set are combined.</p>
 
-<p>Columns 3-88 contain the mean over all measurements (training data and test data) for the given activity (column 1) and subject (column 2)</p>
+<p>The columns:</p>
 
-<p>Only variables which measures mean and standard deviation are included.</p>
+<p>1 - activity type</p>
 
-<p>The averaged variables are </p>
+<pre><code>the activity type in with the subject was engaged
+type: categorical - descriptive name
+values : WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+         (represented as a factor (1-6) with labels)
+note: labels order may change is saved as a text file 
+      (That&#39;s how R saves text files. Save as RData to overcome this problem)
+</code></pre>
 
-<p>3 - mean(tBodyAcc-mean()-X)                    - the mean of tBodyAcc-mean()-X                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 4 - mean(tBodyAcc-mean()-Y)                    - the mean of tBodyAcc-mean()-Y                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 5 - mean(tBodyAcc-mean()-Z)                    - the mean of tBodyAcc-mean()-Z                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 6 - mean(tBodyAcc-std()-X)                     - the mean of tBodyAcc-std()-X                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 7 - mean(tBodyAcc-std()-Y)                     - the mean of tBodyAcc-std()-Y                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 8 - mean(tBodyAcc-std()-Z)                     - the mean of tBodyAcc-std()-Z                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 9 - mean(tGravityAcc-mean()-X)                 - the mean of tGravityAcc-mean()-X                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 10 - mean(tGravityAcc-mean()-Y)                 - the mean of tGravityAcc-mean()-Y                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 11 - mean(tGravityAcc-mean()-Z)                 - the mean of tGravityAcc-mean()-Z                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 12 - mean(tGravityAcc-std()-X)                  - the mean of tGravityAcc-std()-X                  over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 13 - mean(tGravityAcc-std()-Y)                  - the mean of tGravityAcc-std()-Y                  over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 14 - mean(tGravityAcc-std()-Z)                  - the mean of tGravityAcc-std()-Z                  over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 15 - mean(tBodyAccJerk-mean()-X)                - the mean of tBodyAccJerk-mean()-X                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 16 - mean(tBodyAccJerk-mean()-Y)                - the mean of tBodyAccJerk-mean()-Y                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 17 - mean(tBodyAccJerk-mean()-Z)                - the mean of tBodyAccJerk-mean()-Z                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 18 - mean(tBodyAccJerk-std()-X)                 - the mean of tBodyAccJerk-std()-X                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 19 - mean(tBodyAccJerk-std()-Y)                 - the mean of tBodyAccJerk-std()-Y                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 20 - mean(tBodyAccJerk-std()-Z)                 - the mean of tBodyAccJerk-std()-Z                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 21 - mean(tBodyGyro-mean()-X)                   - the mean of tBodyGyro-mean()-X                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 22 - mean(tBodyGyro-mean()-Y)                   - the mean of tBodyGyro-mean()-Y                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 23 - mean(tBodyGyro-mean()-Z)                   - the mean of tBodyGyro-mean()-Z                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 24 - mean(tBodyGyro-std()-X)                    - the mean of tBodyGyro-std()-X                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 25 - mean(tBodyGyro-std()-Y)                    - the mean of tBodyGyro-std()-Y                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 26 - mean(tBodyGyro-std()-Z)                    - the mean of tBodyGyro-std()-Z                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 27 - mean(tBodyGyroJerk-mean()-X)               - the mean of tBodyGyroJerk-mean()-X               over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 28 - mean(tBodyGyroJerk-mean()-Y)               - the mean of tBodyGyroJerk-mean()-Y               over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 29 - mean(tBodyGyroJerk-mean()-Z)               - the mean of tBodyGyroJerk-mean()-Z               over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 30 - mean(tBodyGyroJerk-std()-X)                - the mean of tBodyGyroJerk-std()-X                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 31 - mean(tBodyGyroJerk-std()-Y)                - the mean of tBodyGyroJerk-std()-Y                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 32 - mean(tBodyGyroJerk-std()-Z)                - the mean of tBodyGyroJerk-std()-Z                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 33 - mean(tBodyAccMag-mean())                   - the mean of tBodyAccMag-mean()                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 34 - mean(tBodyAccMag-std())                    - the mean of tBodyAccMag-std()                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 35 - mean(tGravityAccMag-mean())                - the mean of tGravityAccMag-mean()                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 36 - mean(tGravityAccMag-std())                 - the mean of tGravityAccMag-std()                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 37 - mean(tBodyAccJerkMag-mean())               - the mean of tBodyAccJerkMag-mean()               over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 38 - mean(tBodyAccJerkMag-std())                - the mean of tBodyAccJerkMag-std()                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 39 - mean(tBodyGyroMag-mean())                  - the mean of tBodyGyroMag-mean()                  over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 40 - mean(tBodyGyroMag-std())                   - the mean of tBodyGyroMag-std()                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 41 - mean(tBodyGyroJerkMag-mean())              - the mean of tBodyGyroJerkMag-mean()              over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 42 - mean(tBodyGyroJerkMag-std())               - the mean of tBodyGyroJerkMag-std()               over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 43 - mean(fBodyAcc-mean()-X)                    - the mean of fBodyAcc-mean()-X                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 44 - mean(fBodyAcc-mean()-Y)                    - the mean of fBodyAcc-mean()-Y                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 45 - mean(fBodyAcc-mean()-Z)                    - the mean of fBodyAcc-mean()-Z                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 46 - mean(fBodyAcc-std()-X)                     - the mean of fBodyAcc-std()-X                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 47 - mean(fBodyAcc-std()-Y)                     - the mean of fBodyAcc-std()-Y                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 48 - mean(fBodyAcc-std()-Z)                     - the mean of fBodyAcc-std()-Z                     over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 49 - mean(fBodyAcc-meanFreq()-X)                - the mean of fBodyAcc-meanFreq()-X                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 50 - mean(fBodyAcc-meanFreq()-Y)                - the mean of fBodyAcc-meanFreq()-Y                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 51 - mean(fBodyAcc-meanFreq()-Z)                - the mean of fBodyAcc-meanFreq()-Z                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 52 - mean(fBodyAccJerk-mean()-X)                - the mean of fBodyAccJerk-mean()-X                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 53 - mean(fBodyAccJerk-mean()-Y)                - the mean of fBodyAccJerk-mean()-Y                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 54 - mean(fBodyAccJerk-mean()-Z)                - the mean of fBodyAccJerk-mean()-Z                over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 55 - mean(fBodyAccJerk-std()-X)                 - the mean of fBodyAccJerk-std()-X                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 56 - mean(fBodyAccJerk-std()-Y)                 - the mean of fBodyAccJerk-std()-Y                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 57 - mean(fBodyAccJerk-std()-Z)                 - the mean of fBodyAccJerk-std()-Z                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 58 - mean(fBodyAccJerk-meanFreq()-X)            - the mean of fBodyAccJerk-meanFreq()-X            over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 59 - mean(fBodyAccJerk-meanFreq()-Y)            - the mean of fBodyAccJerk-meanFreq()-Y            over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 60 - mean(fBodyAccJerk-meanFreq()-Z)            - the mean of fBodyAccJerk-meanFreq()-Z            over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 61 - mean(fBodyGyro-mean()-X)                   - the mean of fBodyGyro-mean()-X                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 62 - mean(fBodyGyro-mean()-Y)                   - the mean of fBodyGyro-mean()-Y                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 63 - mean(fBodyGyro-mean()-Z)                   - the mean of fBodyGyro-mean()-Z                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 64 - mean(fBodyGyro-std()-X)                    - the mean of fBodyGyro-std()-X                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 65 - mean(fBodyGyro-std()-Y)                    - the mean of fBodyGyro-std()-Y                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 66 - mean(fBodyGyro-std()-Z)                    - the mean of fBodyGyro-std()-Z                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 67 - mean(fBodyGyro-meanFreq()-X)               - the mean of fBodyGyro-meanFreq()-X               over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 68 - mean(fBodyGyro-meanFreq()-Y)               - the mean of fBodyGyro-meanFreq()-Y               over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 69 - mean(fBodyGyro-meanFreq()-Z)               - the mean of fBodyGyro-meanFreq()-Z               over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 70 - mean(fBodyAccMag-mean())                   - the mean of fBodyAccMag-mean()                   over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 71 - mean(fBodyAccMag-std())                    - the mean of fBodyAccMag-std()                    over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 72 - mean(fBodyAccMag-meanFreq())               - the mean of fBodyAccMag-meanFreq()               over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 73 - mean(fBodyBodyAccJerkMag-mean())           - the mean of fBodyBodyAccJerkMag-mean()           over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 74 - mean(fBodyBodyAccJerkMag-std())            - the mean of fBodyBodyAccJerkMag-std()            over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 75 - mean(fBodyBodyAccJerkMag-meanFreq())       - the mean of fBodyBodyAccJerkMag-meanFreq()       over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 76 - mean(fBodyBodyGyroMag-mean())              - the mean of fBodyBodyGyroMag-mean()              over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 77 - mean(fBodyBodyGyroMag-std())               - the mean of fBodyBodyGyroMag-std()               over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 78 - mean(fBodyBodyGyroMag-meanFreq())          - the mean of fBodyBodyGyroMag-meanFreq()          over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 79 - mean(fBodyBodyGyroJerkMag-mean())          - the mean of fBodyBodyGyroJerkMag-mean()          over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 80 - mean(fBodyBodyGyroJerkMag-std())           - the mean of fBodyBodyGyroJerkMag-std()           over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 81 - mean(fBodyBodyGyroJerkMag-meanFreq())      - the mean of fBodyBodyGyroJerkMag-meanFreq()      over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 82 - mean(angle(tBodyAccMean,gravity))          - the mean of angle(tBodyAccMean,gravity)          over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 83 - mean(angle(tBodyAccJerkMean),gravityMean)) - the mean of angle(tBodyAccJerkMean),gravityMean) over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 84 - mean(angle(tBodyGyroMean,gravityMean))     - the mean of angle(tBodyGyroMean,gravityMean)     over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 85 - mean(angle(tBodyGyroJerkMean,gravityMean)) - the mean of angle(tBodyGyroJerkMean,gravityMean) over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 86 - mean(angle(X,gravityMean))                 - the mean of angle(X,gravityMean)                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 87 - mean(angle(Y,gravityMean))                 - the mean of angle(Y,gravityMean)                 over all measurements for the given activity (column 1) and subject (column 2)<br/>
- 88 - mean(angle(Z,gravityMean))                 - the mean of angle(Z,gravityMean)                 over all measurements for the given activity (column 1) and subject (column 2)         </p>
+<p>2-87 - </p>
+
+<pre><code>The measured/calculated value for the given observation and feature.
+Each column represent a specific feature.
+The selection of these specific features is explained in README.md
+type: numerical (all features)
+</code></pre>
+
+<p>The featuers are:</p>
+
+<pre><code class="r">  2 - tBodyAcc-mean()-X
+  3 - tBodyAcc-mean()-Y
+  4 - tBodyAcc-mean()-Z
+  5 - tBodyAcc-std()-X
+  6 - tBodyAcc-std()-Y
+  7 - tBodyAcc-std()-Z
+  8 - tGravityAcc-mean()-X
+  9 - tGravityAcc-mean()-Y
+ 10 - tGravityAcc-mean()-Z
+ 11 - tGravityAcc-std()-X
+ 12 - tGravityAcc-std()-Y
+ 13 - tGravityAcc-std()-Z
+ 14 - tBodyAccJerk-mean()-X
+ 15 - tBodyAccJerk-mean()-Y
+ 16 - tBodyAccJerk-mean()-Z
+ 17 - tBodyAccJerk-std()-X
+ 18 - tBodyAccJerk-std()-Y
+ 19 - tBodyAccJerk-std()-Z
+ 20 - tBodyGyro-mean()-X
+ 21 - tBodyGyro-mean()-Y
+ 22 - tBodyGyro-mean()-Z
+ 23 - tBodyGyro-std()-X
+ 24 - tBodyGyro-std()-Y
+ 25 - tBodyGyro-std()-Z
+ 26 - tBodyGyroJerk-mean()-X
+ 27 - tBodyGyroJerk-mean()-Y
+ 28 - tBodyGyroJerk-mean()-Z
+ 29 - tBodyGyroJerk-std()-X
+ 30 - tBodyGyroJerk-std()-Y
+ 31 - tBodyGyroJerk-std()-Z
+ 32 - tBodyAccMag-mean()
+ 33 - tBodyAccMag-std()
+ 34 - tGravityAccMag-mean()
+ 35 - tGravityAccMag-std()
+ 36 - tBodyAccJerkMag-mean()
+ 37 - tBodyAccJerkMag-std()
+ 38 - tBodyGyroMag-mean()
+ 39 - tBodyGyroMag-std()
+ 40 - tBodyGyroJerkMag-mean()
+ 41 - tBodyGyroJerkMag-std()
+ 42 - fBodyAcc-mean()-X
+ 43 - fBodyAcc-mean()-Y
+ 44 - fBodyAcc-mean()-Z
+ 45 - fBodyAcc-std()-X
+ 46 - fBodyAcc-std()-Y
+ 47 - fBodyAcc-std()-Z
+ 48 - fBodyAcc-meanFreq()-X
+ 49 - fBodyAcc-meanFreq()-Y
+ 50 - fBodyAcc-meanFreq()-Z
+ 51 - fBodyAccJerk-mean()-X
+ 52 - fBodyAccJerk-mean()-Y
+ 53 - fBodyAccJerk-mean()-Z
+ 54 - fBodyAccJerk-std()-X
+ 55 - fBodyAccJerk-std()-Y
+ 56 - fBodyAccJerk-std()-Z
+ 57 - fBodyAccJerk-meanFreq()-X
+ 58 - fBodyAccJerk-meanFreq()-Y
+ 59 - fBodyAccJerk-meanFreq()-Z
+ 60 - fBodyGyro-mean()-X
+ 61 - fBodyGyro-mean()-Y
+ 62 - fBodyGyro-mean()-Z
+ 63 - fBodyGyro-std()-X
+ 64 - fBodyGyro-std()-Y
+ 65 - fBodyGyro-std()-Z
+ 66 - fBodyGyro-meanFreq()-X
+ 67 - fBodyGyro-meanFreq()-Y
+ 68 - fBodyGyro-meanFreq()-Z
+ 69 - fBodyAccMag-mean()
+ 70 - fBodyAccMag-std()
+ 71 - fBodyAccMag-meanFreq()
+ 72 - fBodyBodyAccJerkMag-mean()
+ 73 - fBodyBodyAccJerkMag-std()
+ 74 - fBodyBodyAccJerkMag-meanFreq()
+ 75 - fBodyBodyGyroMag-mean()
+ 76 - fBodyBodyGyroMag-std()
+ 77 - fBodyBodyGyroMag-meanFreq()
+ 78 - fBodyBodyGyroJerkMag-mean()
+ 79 - fBodyBodyGyroJerkMag-std()
+ 80 - fBodyBodyGyroJerkMag-meanFreq()
+ 81 - angle(tBodyAccMean,gravity)
+ 82 - angle(tBodyAccJerkMean),gravityMean)
+ 83 - angle(tBodyGyroMean,gravityMean)
+ 84 - angle(tBodyGyroJerkMean,gravityMean)
+ 85 - angle(X,gravityMean)
+ 86 - angle(Y,gravityMean)
+ 87 - angle(Z,gravityMean)
+</code></pre>
+
+<h3>The output data - actSubjAvg</h3>
+
+<p>This is a data frame with 180 rows and 88 columns.</p>
+
+<p>Each row represent a pair of activity type and subject. There is a total of 6 activity types and 30 subjects.</p>
+
+<p>The columns:</p>
+
+<p>1 - activity type</p>
+
+<pre><code>the activity type in with the subject was engaged
+type: categorical - descriptive name
+values : WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+         (represented as a factor (1-6) with labels)
+note: labels order may change is saved as a text file 
+      (That&#39;s how R saves text files. Save as RData to overcome this problem)
+</code></pre>
+
+<p>2 - subject</p>
+
+<pre><code>volunteer number
+type: integer
+values: 1-30
+</code></pre>
+
+<p>3-88 -</p>
+
+<pre><code>The mean over all measurements (training data and test sets combined) for the given activity (column 1), subject (column 2) and feature.
+Each column represent a specific feature.
+The selection of these specific features is explained in README.md
+type: numerical (all features)
+</code></pre>
+
+<p>The featuers are:</p>
+
+<pre><code class="r">  3 - mean(tBodyAcc-mean()-X)                    - the mean of tBodyAcc-mean()-X
+  4 - mean(tBodyAcc-mean()-Y)                    - the mean of tBodyAcc-mean()-Y
+  5 - mean(tBodyAcc-mean()-Z)                    - the mean of tBodyAcc-mean()-Z
+  6 - mean(tBodyAcc-std()-X)                     - the mean of tBodyAcc-std()-X
+  7 - mean(tBodyAcc-std()-Y)                     - the mean of tBodyAcc-std()-Y
+  8 - mean(tBodyAcc-std()-Z)                     - the mean of tBodyAcc-std()-Z
+  9 - mean(tGravityAcc-mean()-X)                 - the mean of tGravityAcc-mean()-X
+ 10 - mean(tGravityAcc-mean()-Y)                 - the mean of tGravityAcc-mean()-Y
+ 11 - mean(tGravityAcc-mean()-Z)                 - the mean of tGravityAcc-mean()-Z
+ 12 - mean(tGravityAcc-std()-X)                  - the mean of tGravityAcc-std()-X
+ 13 - mean(tGravityAcc-std()-Y)                  - the mean of tGravityAcc-std()-Y
+ 14 - mean(tGravityAcc-std()-Z)                  - the mean of tGravityAcc-std()-Z
+ 15 - mean(tBodyAccJerk-mean()-X)                - the mean of tBodyAccJerk-mean()-X
+ 16 - mean(tBodyAccJerk-mean()-Y)                - the mean of tBodyAccJerk-mean()-Y
+ 17 - mean(tBodyAccJerk-mean()-Z)                - the mean of tBodyAccJerk-mean()-Z
+ 18 - mean(tBodyAccJerk-std()-X)                 - the mean of tBodyAccJerk-std()-X
+ 19 - mean(tBodyAccJerk-std()-Y)                 - the mean of tBodyAccJerk-std()-Y
+ 20 - mean(tBodyAccJerk-std()-Z)                 - the mean of tBodyAccJerk-std()-Z
+ 21 - mean(tBodyGyro-mean()-X)                   - the mean of tBodyGyro-mean()-X
+ 22 - mean(tBodyGyro-mean()-Y)                   - the mean of tBodyGyro-mean()-Y
+ 23 - mean(tBodyGyro-mean()-Z)                   - the mean of tBodyGyro-mean()-Z
+ 24 - mean(tBodyGyro-std()-X)                    - the mean of tBodyGyro-std()-X
+ 25 - mean(tBodyGyro-std()-Y)                    - the mean of tBodyGyro-std()-Y
+ 26 - mean(tBodyGyro-std()-Z)                    - the mean of tBodyGyro-std()-Z
+ 27 - mean(tBodyGyroJerk-mean()-X)               - the mean of tBodyGyroJerk-mean()-X
+ 28 - mean(tBodyGyroJerk-mean()-Y)               - the mean of tBodyGyroJerk-mean()-Y
+ 29 - mean(tBodyGyroJerk-mean()-Z)               - the mean of tBodyGyroJerk-mean()-Z
+ 30 - mean(tBodyGyroJerk-std()-X)                - the mean of tBodyGyroJerk-std()-X
+ 31 - mean(tBodyGyroJerk-std()-Y)                - the mean of tBodyGyroJerk-std()-Y
+ 32 - mean(tBodyGyroJerk-std()-Z)                - the mean of tBodyGyroJerk-std()-Z
+ 33 - mean(tBodyAccMag-mean())                   - the mean of tBodyAccMag-mean()
+ 34 - mean(tBodyAccMag-std())                    - the mean of tBodyAccMag-std()
+ 35 - mean(tGravityAccMag-mean())                - the mean of tGravityAccMag-mean()
+ 36 - mean(tGravityAccMag-std())                 - the mean of tGravityAccMag-std()
+ 37 - mean(tBodyAccJerkMag-mean())               - the mean of tBodyAccJerkMag-mean()
+ 38 - mean(tBodyAccJerkMag-std())                - the mean of tBodyAccJerkMag-std()
+ 39 - mean(tBodyGyroMag-mean())                  - the mean of tBodyGyroMag-mean()
+ 40 - mean(tBodyGyroMag-std())                   - the mean of tBodyGyroMag-std()
+ 41 - mean(tBodyGyroJerkMag-mean())              - the mean of tBodyGyroJerkMag-mean()
+ 42 - mean(tBodyGyroJerkMag-std())               - the mean of tBodyGyroJerkMag-std()
+ 43 - mean(fBodyAcc-mean()-X)                    - the mean of fBodyAcc-mean()-X
+ 44 - mean(fBodyAcc-mean()-Y)                    - the mean of fBodyAcc-mean()-Y
+ 45 - mean(fBodyAcc-mean()-Z)                    - the mean of fBodyAcc-mean()-Z
+ 46 - mean(fBodyAcc-std()-X)                     - the mean of fBodyAcc-std()-X
+ 47 - mean(fBodyAcc-std()-Y)                     - the mean of fBodyAcc-std()-Y
+ 48 - mean(fBodyAcc-std()-Z)                     - the mean of fBodyAcc-std()-Z
+ 49 - mean(fBodyAcc-meanFreq()-X)                - the mean of fBodyAcc-meanFreq()-X
+ 50 - mean(fBodyAcc-meanFreq()-Y)                - the mean of fBodyAcc-meanFreq()-Y
+ 51 - mean(fBodyAcc-meanFreq()-Z)                - the mean of fBodyAcc-meanFreq()-Z
+ 52 - mean(fBodyAccJerk-mean()-X)                - the mean of fBodyAccJerk-mean()-X
+ 53 - mean(fBodyAccJerk-mean()-Y)                - the mean of fBodyAccJerk-mean()-Y
+ 54 - mean(fBodyAccJerk-mean()-Z)                - the mean of fBodyAccJerk-mean()-Z
+ 55 - mean(fBodyAccJerk-std()-X)                 - the mean of fBodyAccJerk-std()-X
+ 56 - mean(fBodyAccJerk-std()-Y)                 - the mean of fBodyAccJerk-std()-Y
+ 57 - mean(fBodyAccJerk-std()-Z)                 - the mean of fBodyAccJerk-std()-Z
+ 58 - mean(fBodyAccJerk-meanFreq()-X)            - the mean of fBodyAccJerk-meanFreq()-X
+ 59 - mean(fBodyAccJerk-meanFreq()-Y)            - the mean of fBodyAccJerk-meanFreq()-Y
+ 60 - mean(fBodyAccJerk-meanFreq()-Z)            - the mean of fBodyAccJerk-meanFreq()-Z
+ 61 - mean(fBodyGyro-mean()-X)                   - the mean of fBodyGyro-mean()-X
+ 62 - mean(fBodyGyro-mean()-Y)                   - the mean of fBodyGyro-mean()-Y
+ 63 - mean(fBodyGyro-mean()-Z)                   - the mean of fBodyGyro-mean()-Z
+ 64 - mean(fBodyGyro-std()-X)                    - the mean of fBodyGyro-std()-X
+ 65 - mean(fBodyGyro-std()-Y)                    - the mean of fBodyGyro-std()-Y
+ 66 - mean(fBodyGyro-std()-Z)                    - the mean of fBodyGyro-std()-Z
+ 67 - mean(fBodyGyro-meanFreq()-X)               - the mean of fBodyGyro-meanFreq()-X
+ 68 - mean(fBodyGyro-meanFreq()-Y)               - the mean of fBodyGyro-meanFreq()-Y
+ 69 - mean(fBodyGyro-meanFreq()-Z)               - the mean of fBodyGyro-meanFreq()-Z
+ 70 - mean(fBodyAccMag-mean())                   - the mean of fBodyAccMag-mean()
+ 71 - mean(fBodyAccMag-std())                    - the mean of fBodyAccMag-std()
+ 72 - mean(fBodyAccMag-meanFreq())               - the mean of fBodyAccMag-meanFreq()
+ 73 - mean(fBodyBodyAccJerkMag-mean())           - the mean of fBodyBodyAccJerkMag-mean()
+ 74 - mean(fBodyBodyAccJerkMag-std())            - the mean of fBodyBodyAccJerkMag-std()
+ 75 - mean(fBodyBodyAccJerkMag-meanFreq())       - the mean of fBodyBodyAccJerkMag-meanFreq()
+ 76 - mean(fBodyBodyGyroMag-mean())              - the mean of fBodyBodyGyroMag-mean()
+ 77 - mean(fBodyBodyGyroMag-std())               - the mean of fBodyBodyGyroMag-std()
+ 78 - mean(fBodyBodyGyroMag-meanFreq())          - the mean of fBodyBodyGyroMag-meanFreq()
+ 79 - mean(fBodyBodyGyroJerkMag-mean())          - the mean of fBodyBodyGyroJerkMag-mean()
+ 80 - mean(fBodyBodyGyroJerkMag-std())           - the mean of fBodyBodyGyroJerkMag-std()
+ 81 - mean(fBodyBodyGyroJerkMag-meanFreq())      - the mean of fBodyBodyGyroJerkMag-meanFreq()
+ 82 - mean(angle(tBodyAccMean,gravity))          - the mean of angle(tBodyAccMean,gravity)
+ 83 - mean(angle(tBodyAccJerkMean),gravityMean)) - the mean of angle(tBodyAccJerkMean),gravityMean)
+ 84 - mean(angle(tBodyGyroMean,gravityMean))     - the mean of angle(tBodyGyroMean,gravityMean)
+ 85 - mean(angle(tBodyGyroJerkMean,gravityMean)) - the mean of angle(tBodyGyroJerkMean,gravityMean)
+ 86 - mean(angle(X,gravityMean))                 - the mean of angle(X,gravityMean)
+ 87 - mean(angle(Y,gravityMean))                 - the mean of angle(Y,gravityMean)
+ 88 - mean(angle(Z,gravityMean))                 - the mean of angle(Z,gravityMean)
+</code></pre>
+
+<h2>The transformation</h2>
+
+<p>The transformation from the input data to the output data is explained in README.md</p>
 
 </body>
 
