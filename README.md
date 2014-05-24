@@ -27,15 +27,15 @@ First, 8 input files are read:
 
 Training set:
 
- - "test/y_test.txt" (read into "testActLabels") - each row (2947 rows) identifies the activity type (integer: 1-6)
- - "test/subject_test.txt" (read into "testSubjLabels") - each row (2947 rows) identifies the subject who performed the activity for each window sample (integer: 2,4,9,10,12,13,18,20,24)
- - "test/X_test.txt" (read into "test") - each row (2974 rows) represent one subject and activity, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)
+ - "test/y_test.txt" (read into "testActLabels") - each row (2947 rows) identifies the activity type, for each window sample (integer: 1-6)
+ - "test/subject_test.txt" (read into "testSubjLabels") - each row (2947 rows) identifies the subject who performed the activity, for each window sample (integer: 2,4,9,10,12,13,18,20,24)
+ - "test/X_test.txt" (read into "test") - each row (2974 rows) represents one subject involved in one activity type (identified in the two files described above) in one window sample, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)
  
 Test set:
 
- - "train/y_train.txt" (read into "trainActLabels") - each row (7352 rows) identifies the activity type (integer: 1-6)
- - "train/subject_train.txt" (read into "trainSubjLabels") - each row (7352 rows) identifies the subject who performed the activity for each window sample (integer: 1,3,5-8,11,14-17,19,21-23,25-30)
- - "train/X_train.txt" (read into "train") - each row (7352 rows) represent one subject and activity, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)
+ - "train/y_train.txt" (read into "trainActLabels") - each row (7352 rows) identifies the activity type, for each window sample (integer: 1-6)
+ - "train/subject_train.txt" (read into "trainSubjLabels") - each row (7352 rows) identifies the subject who performed the activity, for each window sample (integer: 1,3,5-8,11,14-17,19,21-23,25-30)
+ - "train/X_train.txt" (read into "train") - each row (7352 rows) represents one subject involved in one activity type (identified in the two files described above) in one window sample, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)
  
 Descriptive names:
 

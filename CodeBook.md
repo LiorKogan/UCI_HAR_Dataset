@@ -19,26 +19,26 @@ The input data is the following 8 files:
 
 Training set:
 
- - "test/y_test.txt" (read into "testActLabels") - each row (2947 rows) identifies the activity type (integer: 1-6)
- - "test/subject_test.txt" (read into "testSubjLabels") - each row (2947 rows) identifies the subject who performed the activity for each window sample (integer: 2,4,9,10,12,13,18,20,24)
- - "test/X_test.txt" (read into "test") - each row (2974 rows) represent one subject and activity, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)
+ - "test/y_test.txt" - each row (2947 rows) identifies the activity type, for each window sample (integer: 1-6)
+ - "test/subject_test.txt" - each row (2947 rows) identifies the subject who performed the activity, for each window sample (integer: 2,4,9,10,12,13,18,20,24)
+ - "test/X_test.txt" - each row (2974 rows) represents one subject involved in one activity type (identified in the two files described above) in one window sample, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)
  
 Test set:
 
- - "train/y_train.txt" (read into "trainActLabels") - each row (7352 rows) identifies the activity type (integer: 1-6)
- - "train/subject_train.txt" (read into "trainSubjLabels") - each row (7352 rows) identifies the subject who performed the activity for each window sample (integer: 1,3,5-8,11,14-17,19,21-23,25-30)
- - "train/X_train.txt" (read into "train") - each row (7352 rows) represent one subject and activity, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)
+ - "train/y_train.txt" - each row (7352 rows) identifies the activity type, for each window sample (integer: 1-6)
+ - "train/subject_train.txt" - each row (7352 rows) identifies the subject who performed the activity, for each window sample (integer: 1,3,5-8,11,14-17,19,21-23,25-30)
+ - "train/X_train.txt" - each row (7352 rows) represents one subject involved in one activity type (identified in the two files described above) in one window sample, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)
  
 Descriptive names:
 
- - "activity_labels.txt" (read into "actLabelTable") - contains the names of the 6 activity types (col.1: Seq.no, col.2: activity name)
- - "features.txt" (the secoonds column is read into "features") - contains the names of the 561 measurement types (features) (col.1: Seq.no, col.2: measurement name)
+ - "activity_labels.txt" - contains the names of the 6 activity types (col.1: Seq.no, col.2: activity name)
+ - "features.txt" - contains the names of the 561 measurement types (features) (col.1: Seq.no, col.2: measurement name)
  
 ### The output data - meansStds
 
 This is a matrix with 10299 rows and 87 columns.
 
-Each row represents one observation (one test: one subject involved in one activity, in one window sample). Training data set and test set are combined.
+Each row represents one observation (one test: one subject involved in one activity type, in one window sample). Training data set and test set are combined.
 
 The columns:
 
@@ -46,7 +46,7 @@ The columns:
 
     the activity type in with the subject was engaged
     type: categorical - descriptive name
-    values : WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+    values: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
              (represented as a factor (1-6) with labels)
     note: labels order may change is saved as a text file 
           (That's how R saves text files. Save as RData to overcome this problem)

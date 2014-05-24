@@ -202,31 +202,31 @@ hljs.initHighlightingOnLoad();
 <p>Training set:</p>
 
 <ul>
-<li>&ldquo;test/y_test.txt&rdquo; (read into &ldquo;testActLabels&rdquo;) - each row (2947 rows) identifies the activity type (integer: 1-6)</li>
-<li>&ldquo;test/subject_test.txt&rdquo; (read into &ldquo;testSubjLabels&rdquo;) - each row (2947 rows) identifies the subject who performed the activity for each window sample (integer: 2,4,9,10,12,13,18,20,24)</li>
-<li>&ldquo;test/X_test.txt&rdquo; (read into &ldquo;test&rdquo;) - each row (2974 rows) represent one subject and activity, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)</li>
+<li>&ldquo;test/y_test.txt&rdquo; - each row (2947 rows) identifies the activity type, for each window sample (integer: 1-6)</li>
+<li>&ldquo;test/subject_test.txt&rdquo; - each row (2947 rows) identifies the subject who performed the activity, for each window sample (integer: 2,4,9,10,12,13,18,20,24)</li>
+<li>&ldquo;test/X_test.txt&rdquo; - each row (2974 rows) represents one subject involved in one activity type (identified in the two files described above) in one window sample, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)</li>
 </ul>
 
 <p>Test set:</p>
 
 <ul>
-<li>&ldquo;train/y_train.txt&rdquo; (read into &ldquo;trainActLabels&rdquo;) - each row (7352 rows) identifies the activity type (integer: 1-6)</li>
-<li>&ldquo;train/subject_train.txt&rdquo; (read into &ldquo;trainSubjLabels&rdquo;) - each row (7352 rows) identifies the subject who performed the activity for each window sample (integer: 1,3,5-8,11,14-17,19,21-23,25-30)</li>
-<li>&ldquo;train/X_train.txt&rdquo; (read into &ldquo;train&rdquo;) - each row (7352 rows) represent one subject and activity, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)</li>
+<li>&ldquo;train/y_train.txt&rdquo; - each row (7352 rows) identifies the activity type, for each window sample (integer: 1-6)</li>
+<li>&ldquo;train/subject_train.txt&rdquo; - each row (7352 rows) identifies the subject who performed the activity, for each window sample (integer: 1,3,5-8,11,14-17,19,21-23,25-30)</li>
+<li>&ldquo;train/X_train.txt&rdquo; - each row (7352 rows) represents one subject involved in one activity type (identified in the two files described above) in one window sample, each column (561 columns) contains the measured value for one measurement type - for the given activity and subject (numerical)</li>
 </ul>
 
 <p>Descriptive names:</p>
 
 <ul>
-<li>&ldquo;activity_labels.txt&rdquo; (read into &ldquo;actLabelTable&rdquo;) - contains the names of the 6 activity types (col.1: Seq.no, col.2: activity name)</li>
-<li>&ldquo;features.txt&rdquo; (the secoonds column is read into &ldquo;features&rdquo;) - contains the names of the 561 measurement types (features) (col.1: Seq.no, col.2: measurement name)</li>
+<li>&ldquo;activity_labels.txt&rdquo; - contains the names of the 6 activity types (col.1: Seq.no, col.2: activity name)</li>
+<li>&ldquo;features.txt&rdquo; - contains the names of the 561 measurement types (features) (col.1: Seq.no, col.2: measurement name)</li>
 </ul>
 
 <h3>The output data - meansStds</h3>
 
 <p>This is a matrix with 10299 rows and 87 columns.</p>
 
-<p>Each row represents one observation (one test: one subject involved in one activity, in one window sample). Training data set and test set are combined.</p>
+<p>Each row represents one observation (one test: one subject involved in one activity type, in one window sample). Training data set and test set are combined.</p>
 
 <p>The columns:</p>
 
@@ -234,7 +234,7 @@ hljs.initHighlightingOnLoad();
 
 <pre><code>the activity type in with the subject was engaged
 type: categorical - descriptive name
-values : WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
+values: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
          (represented as a factor (1-6) with labels)
 note: labels order may change is saved as a text file 
       (That&#39;s how R saves text files. Save as RData to overcome this problem)
